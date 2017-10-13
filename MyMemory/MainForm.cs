@@ -60,6 +60,7 @@ namespace MyMemory
                         if (gameSettings.restoreFromFile(xmlFile))
                         {
                             setPlayerInfo();
+                            redrawGrid();
                         }
                     }
                 }
@@ -139,6 +140,8 @@ namespace MyMemory
 
                 }
             }
+
+            autosizeTable();
 
         }//redrawGrid()
 
@@ -227,14 +230,38 @@ namespace MyMemory
 
             tblTiles.Top = tblheader.Bottom + 5;
             this.Controls.Add(tblTiles);
+            tblTiles.CellBorderStyle = TableLayoutPanelCellBorderStyle.None;
+            tblTiles.Padding = new Padding(0);
+            tblTiles.Margin = new Padding(0);
 
             imagesShown = 0;
         }
 
         private void autosizeTable()
         {
-            tblTiles.Width = this.Width - 20;
-            tblTiles.Height = this.Height - tblTiles.Top;
+            tblTiles.Width = this.ClientRectangle.Width - 20;
+            tblTiles.Height = this.ClientRectangle.Height - tblTiles.Top;
+            
+            int tileH, tileW;
+
+            tileW = tblTiles.Width / gameSettings.tilesX;
+            tileH = tblTiles.Height / gameSettings.tilesY;
+
+            lblPlayer1Name.Text = tblTiles.Width.ToString() + "/ " + this.Width.ToString() + "/ " + tileW;
+            lblPlayer2Name.Text = tblTiles.Height.ToString() + "/" + this.Height.ToString() + "/ " + tileH;
+
+            foreach (Control ctrl in tblTiles.Controls)
+            {
+                if (ctrl is PictureBox)
+                {
+                    PictureBox pb = ctrl as PictureBox;
+                    pb.Width = tileW;
+                    pb.Height = tileH;
+                    pb.BorderStyle = BorderStyle.None;
+                    pb.Padding = new Padding(0);
+                    pb.Margin = new Padding(0);
+                }
+            }
         }
     }
 }

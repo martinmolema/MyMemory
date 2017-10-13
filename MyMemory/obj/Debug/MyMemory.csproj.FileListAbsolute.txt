@@ -22,3 +22,16 @@ C:\Home\Martin\Sources\MyMemory\MyMemory\obj\Debug\MyMemory.csproj.CoreCompileIn
 C:\Home\Martin\Sources\MyMemory\MyMemory\obj\Debug\MyMemory.exe
 C:\Home\Martin\Sources\MyMemory\MyMemory\obj\Debug\MyMemory.pdb
 C:\Home\Martin\Sources\MyMemory\MyMemory\obj\Debug\MyMemory.dlgSettings.resources
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\bin\Debug\MyMemory.exe.config
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\bin\Debug\MyMemory.exe
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\bin\Debug\MyMemory.pdb
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.csprojResolveAssemblyReference.cache
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.dlgPlayerNameEntry.resources
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.dlgHighscores.resources
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.dlgSettings.resources
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.MainForm.resources
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.Properties.Resources.resources
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.csproj.GenerateResource.Cache
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.csproj.CoreCompileInputs.cache
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.exe
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.pdb
