@@ -1,0 +1,524 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MyMemory</name>
+    </assembly>
+    <members>
+        <member name="T:MyMemory.dlgPlayerNameEntry">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgPlayerNameEntry.username1">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgPlayerNameEntry.username2">
+            <summary></summary>
+        </member>
+        <member name="M:MyMemory.dlgPlayerNameEntry.#ctor">
+            <summary></summary>
+        </member>
+        <member name="M:MyMemory.dlgPlayerNameEntry.enableButtons">
+            <summary></summary>
+        </member>
+        <member name="M:MyMemory.dlgPlayerNameEntry.dlgPlayerNameEntry_Load(System.Object,System.EventArgs)">
+            <summary></summary>
+        </member>
+        <member name="M:MyMemory.dlgPlayerNameEntry.btnOK_Click(System.Object,System.EventArgs)">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgPlayerNameEntry.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MyMemory.dlgPlayerNameEntry.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MyMemory.dlgPlayerNameEntry.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MyMemory.dlgHighscores">
+            <summary></summary>
+        </member>
+        <member name="M:MyMemory.dlgHighscores.#ctor">
+            <summary></summary>
+        </member>
+        <member name="M:MyMemory.dlgHighscores.dlgHighscores_Load(System.Object,System.EventArgs)">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgHighscores.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MyMemory.dlgHighscores.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MyMemory.dlgHighscores.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:MyMemory.dlgSettings">
+            <summary></summary>
+            <summary></summary>
+        </member>
+        <member name="M:MyMemory.dlgSettings.#ctor">
+            <summary></summary>
+        </member>
+        <member name="M:MyMemory.dlgSettings.dlgSettings_Load(System.Object,System.EventArgs)">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgSettings.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MyMemory.dlgSettings.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MyMemory.dlgSettings.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:MyMemory.dlgSettings.btnOK">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgSettings.btnCancel">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgSettings.lblTheme">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgSettings.lblAfmetingen">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgSettings.label1">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgSettings.cbxTheme">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgSettings.numSizeX">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.dlgSettings.numSizeY">
+            <summary></summary>
+        </member>
+        <member name="T:MyMemory.gameModeType">
+            <summary>
+              The gameModeType indicates the type of mode: single player/multiplayer and whether flash-mode is enabled
+            </summary>
+        </member>
+        <member name="F:MyMemory.gameModeType.Normal">
+            <summary>
+            This is the normal game mode: 2 players start with all backs shown
+            </summary>
+        </member>
+        <member name="F:MyMemory.gameModeType.SinglePlayer">
+            <summary>
+            the single player 'against the clock' mode
+            </summary>
+        </member>
+        <member name="F:MyMemory.gameModeType.NormalFlash">
+            <summary>
+            the normal game mode with 2 players, but now first all the tiles are shown, and points are substracted 
+            when player cannot find two the same tiles
+            </summary>
+        </member>
+        <member name="F:MyMemory.gameModeType.SinglePlayerFlash">
+            <summary>
+            the single player mode , but now first all the tiles are shown, and points are substracted 
+            when player cannot find two the same tiles
+            </summary>
+        </member>
+        <member name="T:MyMemory.tileStatusType">
+            <summary>an enumerated type for the status of each tile.</summary>
+        </member>
+        <member name="F:MyMemory.tileStatusType.Unknown">
+            <summary>The status of a tile is not determined</summary>
+        </member>
+        <member name="F:MyMemory.tileStatusType.Closed">
+            <summary>the tile is shown with it's back shown</summary>
+        </member>
+        <member name="F:MyMemory.tileStatusType.ShowTemporary">
+            <summary>the image is shown temporarily until either a match is found or a two different tiles are clicked</summary>
+        </member>
+        <member name="F:MyMemory.tileStatusType.Found">
+            <summary>the image is shown indefinitely because it is part of a match </summary>
+        </member>
+        <member name="F:MyMemory.tileStatusType.Flash">
+            <summary>the image is shown temporarily so the users can learn its positions</summary>
+        </member>
+        <member name="T:MyMemory.gameStatusType">
+            <summary>an enumerated type for the global game status</summary>
+        </member>
+        <member name="F:MyMemory.gameStatusType.Initial">
+            <summary>The game is initial state; users must start new game or load from file</summary>
+        </member>
+        <member name="F:MyMemory.gameStatusType.Paused">
+            <summary>Game is paused; for instance to save to file</summary>
+        </member>
+        <member name="F:MyMemory.gameStatusType.Flashing">
+            <summary>Game is temporarily showing all times; a timer is started to close the tiles</summary>
+        </member>
+        <member name="F:MyMemory.gameStatusType.Started">
+            <summary>Game has started and player(s) can click tiles.</summary>
+        </member>
+        <member name="F:MyMemory.gameStatusType.Finished">
+            <summary>Game has finished. All tiles have been found</summary>
+        </member>
+        <member name="T:MyMemory.openedImagesCompareResult">
+            <summary>an enumerated type used when comparing the images of the opened tiles</summary>
+        </member>
+        <member name="F:MyMemory.openedImagesCompareResult.theSame">
+            <summary>the two opened tiles have the same image assigned</summary>
+        </member>
+        <member name="F:MyMemory.openedImagesCompareResult.Different">
+            <summary>the two opened tiles have different images assigned</summary>
+        </member>
+        <member name="F:MyMemory.openedImagesCompareResult.notEnoughImages">
+            <summary>there are currently no two images shown</summary>
+        </member>
+        <member name="T:MyMemory.playerInfo">
+            <summary>a class to register a player</summary>
+        </member>
+        <member name="F:MyMemory.playerInfo.name">
+            <summary>the name of the player</summary>
+        </member>
+        <member name="F:MyMemory.playerInfo.score">
+            <summary>the score for the player</summary>
+        </member>
+        <member name="T:MyMemory.gameSettings">
+            <summary>A global class with only static information serving as the application's administration
+            through save and load procedures the state can be saved/retrieved from disk
+            </summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.players">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings._gameMode">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.highscoreNames">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.tileImages">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.tileStatus">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.tilesX">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.tilesY">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.numberOfTiles">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.numberOfImages">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings._theme">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.imagePrefix">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.imageBackTile">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings._numberOfPlayers">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings._singlePlayerTimer">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.gameStatus">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.openedImages">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings._openedImageCount">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings._currentPlayerNumber">
+            <summary></summary>
+        </member>
+        <member name="P:MyMemory.gameSettings.openedImageCount">
+            <summary>
+            the number of temporarily opened images when user is clicking on a closed tile.
+            </summary>
+            <value>the number of temporarily opened images when user is clicking on a closed tile.</value>
+        </member>
+        <member name="P:MyMemory.gameSettings.singlePlayerTimer">
+            <summary>
+            Getter for the parameter singlePlayerTimer; will return a time in seconds.
+            </summary>
+            <returns>a time in seconds</returns>
+        </member>
+        <member name="P:MyMemory.gameSettings.currentPlayerNumber">
+            <summary>returns the current player number (1 or 2)</summary>
+            <value>returns the current player number (1 or 2)</value>
+        </member>
+        <member name="P:MyMemory.gameSettings.gameMode">
+            <summary>
+              The gameMode property indicates the type of mode: single player/multiplayer and whether flash-mode is enabled
+            </summary>
+            <value>The gameMode property indicates the type of mode: single player/multiplayer and whether flash-mode is enabled</value>
+        </member>
+        <member name="P:MyMemory.gameSettings.numberOfPlayers">
+            <summary>
+              The number of players
+            </summary>
+            <value>The integer representation of the number of players</value>
+        </member>
+        <member name="P:MyMemory.gameSettings.theme">
+            <summary>The theme is a string value representing a certain theme ("iconset")</summary>
+            <value>The theme is a string value representing a certain theme ("iconset")</value>
+        </member>
+        <member name="M:MyMemory.gameSettings.#cctor">
+            <summary>Constructor for this class</summary>
+        </member>
+        <member name="M:MyMemory.gameSettings.setSize(System.Int32,System.Int32)">
+            <summary>
+              initialises the internal administration for tiles according to requested sizes 
+            </summary>
+            <param name="tilesXRequested">number of horizontal tiles</param>
+            <param name="tilesYRequested">number of vertical tiles</param>
+        </member>
+        <member name="M:MyMemory.gameSettings.setPlayername(System.String,System.Int32)">
+            <summary>
+              Set player name for a certain playernumber; leave score alone 
+            </summary>
+            <param name="playerName">the name of the player</param>
+            <param name="playerNr">the playernumber</param>
+        </member>
+        <member name="M:MyMemory.gameSettings.setScorePlayer(System.Int32,System.Int32)">
+            <summary>
+              Set the absolute score for a certain player
+            </summary>
+            <param name="score">score (integer)</param>
+            <param name="playerNr">playernumber requested</param>
+        </member>
+        <member name="M:MyMemory.gameSettings.resetSinglePlayerTimer">
+            <summary>
+              reset the timer for the single player mode
+            </summary>
+        </member>
+        <member name="M:MyMemory.gameSettings.newPlayer(System.String,System.Int32)">
+            <summary>
+            add a new player with a certain name and absolute score of zero
+            </summary>
+            <param name="playername">The new player's name</param>
+            <param name="playerNr">the new playernumber</param>
+        </member>
+        <member name="M:MyMemory.gameSettings.setupNewGame">
+            <summary>
+            Setup a new game; this initialises the board using the gamesettings previous setup by 
+            the settings dialogbox
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyMemory.gameSettings.restoreFromFile(System.IO.Stream)">
+            <summary>
+              Restores the game status from file. File open/closed is done by caller (by utilizing a "Using()")
+            </summary>
+            <param name="xmlFile">a Stream previously opened via a common Dialog box "OpenFile"</param>
+            <returns>True if the restore was successful. Otherwise returns false</returns>
+        </member>
+        <member name="M:MyMemory.gameSettings.bulkChangeTileStatus(MyMemory.tileStatusType)">
+            <summary>
+              Change the status of ALL present tiles to a certain status
+            </summary>
+            <param name="t"></param>
+        </member>
+        <member name="M:MyMemory.gameSettings.bulkChangeTileStatus(MyMemory.tileStatusType,MyMemory.tileStatusType)">
+            <summary>
+              Change the status of ALL present tiles having a certain current status indicated by filter parameter
+            </summary>
+            <param name="t">the new status</param>
+            <param name="filter">the status used as a filter.</param>
+        </member>
+        <member name="M:MyMemory.gameSettings.setupFromXML(System.Xml.XmlDocument)">
+            <summary>
+              Setup the game using an XML document (read from file) indicated by <paramref name="xml"/>
+            </summary>
+            <param name="xml">An XMLDocument </param>
+            <returns></returns>
+        </member>
+        <member name="M:MyMemory.gameSettings.saveToXML(System.IO.Stream)">
+            <summary>
+            Saves the gamesettings to an XML file.
+            </summary>
+            <param name="xmlFile"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyMemory.gameSettings.AddOpenedImage(System.Int32)">
+            <summary>
+            
+            </summary>
+            <param name="pos"></param>
+        </member>
+        <member name="M:MyMemory.gameSettings.cleanupOpenedImages">
+            <summary>
+              The list of opened images is emptied
+            </summary>
+        </member>
+        <member name="M:MyMemory.gameSettings.OpenedImagesAreTheSame">
+            <summary>
+            Compares the opened images whether they have the same images assigned.
+            </summary>
+            <returns>one of the results of openedImagesCompareResult</returns>
+        </member>
+        <member name="M:MyMemory.gameSettings.switchCurrentPlayer">
+            <summary>
+             switch players if more than one player
+            </summary>
+        </member>
+        <member name="M:MyMemory.gameSettings.allTilesFound">
+            <summary>
+            Check if all tiles are opened. Return true if all tiles are opened (tileStatusType.Found)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyMemory.gameSettings.onePairRemaining">
+            <summary>
+            Return TRUE if only one pair remains to be opened
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MyMemory.gameSettings.AssignScoreCurrentPlayer(System.Int32)">
+            <summary>
+            Assign a number of points to the current player
+            </summary>
+            <param name="score"></param>
+            <returns></returns>
+        </member>
+        <member name="M:MyMemory.gameSettings.setStatusOfOpenedImages(MyMemory.tileStatusType)">
+            <summary>
+            The opened tiles get assigned a new status according to parameter <paramref name="t"/>
+            </summary>
+            <param name="t">the new status</param>
+        </member>
+        <member name="M:MyMemory.gameSettings.checkGameOver">
+            <summary>Checks if the game is over and changes the gameStatus and tilestatus accordingly</summary>
+        </member>
+        <member name="T:MyMemory.MainForm">
+            <summary>
+            the main form of the application
+            </summary>
+        </member>
+        <member name="M:MyMemory.MainForm.#ctor">
+            <summary>Initialises the mainform</summary>
+        </member>
+        <member name="M:MyMemory.MainForm.opslaanToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Menu item: Bestand->Opslaan
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MyMemory.MainForm.afsluitenToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>
+            Menu item Bestand->Afsluiten
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MyMemory.MainForm.ladenToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            <summary>Menu Item Bestand->Laden</summary>
+        </member>
+        <member name="M:MyMemory.MainForm.nieuwSpelToolStripMenuItem_Click(System.Object,System.EventArgs)">
+            Menu Item Game-> Nieuw
+        </member>
+        <member name="M:MyMemory.MainForm.redrawGrid">
+            <summary>
+            Redraw the grid using the gamesettings as source of information
+            </summary>
+        </member>
+        <member name="M:MyMemory.MainForm.Tile_clicked(System.Object,System.EventArgs)">
+            <summary>click handler for each tile</summary>
+        </member>
+        <member name="M:MyMemory.MainForm.switchPlayer">
+            <summary>switch to another player</summary>
+        </member>
+        <member name="M:MyMemory.MainForm.HandleTimer(System.Object,System.EventArgs)">
+            <summary>
+              Handle the timer to flip the wrong tiles back to it's closed status
+            </summary>
+            <param name="source"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MyMemory.MainForm.setPlayerInfo">
+            <summary>
+              Sets the player info on the screen based on the gamesettings.gameMode
+            </summary>
+        </member>
+        <member name="M:MyMemory.MainForm.changePlayerScore(System.Int32)">
+            <summary>
+              Changes the players score (current player)
+            </summary>
+            <param name="addScore">the number of points to be added to the current player's score</param>
+        </member>
+        <member name="M:MyMemory.MainForm.OpenAllTiles">
+            <summary>Shows all images</summary>
+        </member>
+        <member name="F:MyMemory.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:MyMemory.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:MyMemory.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:MyMemory.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+            
+        </member>
+        <member name="T:MyMemory.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:MyMemory.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:MyMemory.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -41,10 +41,10 @@
             this.fileOpenDlg = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDlg = new System.Windows.Forms.SaveFileDialog();
             this.tblheader = new System.Windows.Forms.TableLayoutPanel();
-            this.lblPlayer2Name = new System.Windows.Forms.Label();
-            this.lblPlayer1Score = new System.Windows.Forms.Label();
             this.lblPlayer1Name = new System.Windows.Forms.Label();
+            this.lblPlayer1Score = new System.Windows.Forms.Label();
             this.lblPlayer2Score = new System.Windows.Forms.Label();
+            this.lblPlayer2Name = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tblheader.SuspendLayout();
             this.SuspendLayout();
@@ -151,38 +151,18 @@
             this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.625F));
             this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.375F));
             this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 312F));
-            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61F));
-            this.tblheader.Controls.Add(this.lblPlayer2Name, 0, 0);
-            this.tblheader.Controls.Add(this.lblPlayer1Score, 0, 0);
+            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
             this.tblheader.Controls.Add(this.lblPlayer1Name, 0, 0);
-            this.tblheader.Controls.Add(this.lblPlayer2Score, 1, 0);
+            this.tblheader.Controls.Add(this.lblPlayer1Score, 1, 0);
+            this.tblheader.Controls.Add(this.lblPlayer2Score, 3, 0);
+            this.tblheader.Controls.Add(this.lblPlayer2Name, 2, 0);
             this.tblheader.Location = new System.Drawing.Point(12, 27);
             this.tblheader.Name = "tblheader";
             this.tblheader.RowCount = 1;
             this.tblheader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblheader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblheader.Size = new System.Drawing.Size(760, 56);
+            this.tblheader.Size = new System.Drawing.Size(760, 65);
             this.tblheader.TabIndex = 2;
-            // 
-            // lblPlayer2Name
-            // 
-            this.lblPlayer2Name.AutoSize = true;
-            this.lblPlayer2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayer2Name.Location = new System.Drawing.Point(389, 0);
-            this.lblPlayer2Name.Name = "lblPlayer2Name";
-            this.lblPlayer2Name.Size = new System.Drawing.Size(28, 37);
-            this.lblPlayer2Name.TabIndex = 2;
-            this.lblPlayer2Name.Text = "-";
-            // 
-            // lblPlayer1Score
-            // 
-            this.lblPlayer1Score.AutoSize = true;
-            this.lblPlayer1Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayer1Score.Location = new System.Drawing.Point(315, 0);
-            this.lblPlayer1Score.Name = "lblPlayer1Score";
-            this.lblPlayer1Score.Size = new System.Drawing.Size(36, 37);
-            this.lblPlayer1Score.TabIndex = 3;
-            this.lblPlayer1Score.Text = "0";
             // 
             // lblPlayer1Name
             // 
@@ -194,15 +174,36 @@
             this.lblPlayer1Name.TabIndex = 0;
             this.lblPlayer1Name.Text = "-";
             // 
+            // lblPlayer1Score
+            // 
+            this.lblPlayer1Score.AutoSize = true;
+            this.lblPlayer1Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayer1Score.Location = new System.Drawing.Point(312, 0);
+            this.lblPlayer1Score.Name = "lblPlayer1Score";
+            this.lblPlayer1Score.Size = new System.Drawing.Size(36, 37);
+            this.lblPlayer1Score.TabIndex = 3;
+            this.lblPlayer1Score.Text = "0";
+            // 
             // lblPlayer2Score
             // 
             this.lblPlayer2Score.AutoSize = true;
             this.lblPlayer2Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayer2Score.Location = new System.Drawing.Point(701, 0);
+            this.lblPlayer2Score.Location = new System.Drawing.Point(698, 0);
             this.lblPlayer2Score.Name = "lblPlayer2Score";
             this.lblPlayer2Score.Size = new System.Drawing.Size(36, 37);
             this.lblPlayer2Score.TabIndex = 1;
             this.lblPlayer2Score.Text = "0";
+            // 
+            // lblPlayer2Name
+            // 
+            this.lblPlayer2Name.AutoSize = true;
+            this.lblPlayer2Name.BackColor = System.Drawing.SystemColors.Control;
+            this.lblPlayer2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayer2Name.Location = new System.Drawing.Point(386, 0);
+            this.lblPlayer2Name.Name = "lblPlayer2Name";
+            this.lblPlayer2Name.Size = new System.Drawing.Size(28, 37);
+            this.lblPlayer2Name.TabIndex = 2;
+            this.lblPlayer2Name.Text = "-";
             // 
             // MainForm
             // 

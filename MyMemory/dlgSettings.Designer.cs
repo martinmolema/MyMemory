@@ -1,5 +1,6 @@
 ﻿namespace MyMemory
 {
+    /// <summary></summary>
     partial class dlgSettings
     {
         /// <summary>
@@ -174,13 +175,21 @@
 
         #endregion
 
+        /// <summary></summary>
         private System.Windows.Forms.Button btnOK;
+        /// <summary></summary>
         private System.Windows.Forms.Button btnCancel;
+        /// <summary></summary>
         private System.Windows.Forms.Label lblTheme;
+        /// <summary></summary>
         private System.Windows.Forms.Label lblAfmetingen;
+        /// <summary></summary>
         private System.Windows.Forms.Label label1;
+        /// <summary></summary>
         public System.Windows.Forms.ComboBox cbxTheme;
+        /// <summary></summary>
         public System.Windows.Forms.NumericUpDown numSizeX;
+        /// <summary></summary>
         public System.Windows.Forms.NumericUpDown numSizeY;
     }
 }

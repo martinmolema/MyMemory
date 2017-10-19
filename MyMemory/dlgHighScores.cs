@@ -10,13 +10,16 @@ using System.Windows.Forms;
 
 namespace MyMemory
 {
+    /// <summary></summary>
     public partial class dlgHighscores : Form
     {
+        /// <summary></summary>
         public dlgHighscores()
         {
             InitializeComponent();
         }
 
+        /// <summary></summary>
         private void dlgHighscores_Load(object sender, EventArgs e)
         {
             foreach (KeyValuePair<string, int> item in gameSettings.highscoreNames)
