@@ -233,16 +233,29 @@ namespace MyMemory
 
                     if (gameSettings.openedImageCount == 2 && ! theSame)
                     {
+                        // when images have been flashed at the start, wrong selections cost 1 point
+
+                        if (gameSettings.gameMode == gameModeType.NormalFlash ||
+                            gameSettings.gameMode == gameModeType.SinglePlayerFlash)
+                            changePlayerScore(-1);
+
+                        // items remain opened for 2 seconds.
                         System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer();
                         timer.Interval = 2000;
                         timer.Tick += HandleTimer;
                         timer.Enabled = true;
                         timer.Start();
+
                     }
 
                     if (theSame)
                     {
-                        changePlayerScore(1); // add one point to score
+                        int score = 1;
+                        if (gameSettings.gameMode == gameModeType.NormalFlash ||
+                            gameSettings.gameMode == gameModeType.SinglePlayerFlash)
+                            score = ((gameSettings.tilesX = gameSettings.tilesY) / 2 ) / 2;
+
+                        changePlayerScore(score); // add one point to score
                         gameSettings.setStatusOfOpenedImages(tileStatusType.Found);
                         gameSettings.cleanupOpenedImages();
 
@@ -276,6 +289,7 @@ namespace MyMemory
         {
             gameSettings.switchCurrentPlayer();
             gameSettings.cleanupOpenedImages();
+            setPlayerInfo();
 
             switch (gameSettings.currentPlayerNumber)
             {
@@ -288,6 +302,8 @@ namespace MyMemory
                     this.lblPlayer2Name.ForeColor = Color.Red;
                     break;
             }
+
+            
         }//switchPlayer()
 
         /// <summary>
@@ -350,6 +366,10 @@ namespace MyMemory
         /// </summary>
         private void setPlayerInfo()
         {
+            if (gameSettings.players[gameSettings.currentPlayerNumber - 1].avatarFilename != null)
+            {
+                this.imgAvatarCurPlayer.Image = Image.FromFile(gameSettings.players[gameSettings.currentPlayerNumber - 1].avatarFilename);
+            }
             switch (gameSettings.gameMode)
             {
                 case gameModeType.Normal:
@@ -420,7 +440,7 @@ namespace MyMemory
         private void changePlayerScore(int addScore)
         {
             int playerNr = gameSettings.currentPlayerNumber;
-            int newscore = gameSettings.AssignScoreCurrentPlayer(1);
+            int newscore = gameSettings.AssignScoreCurrentPlayer(addScore);
 
             switch (playerNr)
             {
@@ -449,5 +469,9 @@ namespace MyMemory
             }
         }
 
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }// end class
 }// Namespace

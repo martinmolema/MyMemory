@@ -37,6 +37,10 @@
             this.numSizeY = new System.Windows.Forms.NumericUpDown();
             this.lblAfmetingen = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtNrOfTiles = new System.Windows.Forms.TextBox();
+            this.lblError = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numSizeX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSizeY)).BeginInit();
             this.SuspendLayout();
@@ -44,7 +48,7 @@
             // btnOK
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.btnOK.Location = new System.Drawing.Point(12, 85);
+            this.btnOK.Location = new System.Drawing.Point(12, 92);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -54,7 +58,7 @@
             // btnCancel
             // 
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(124, 85);
+            this.btnCancel.Location = new System.Drawing.Point(237, 92);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -63,19 +67,15 @@
             // 
             // cbxTheme
             // 
-            this.cbxTheme.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbxTheme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxTheme.FormattingEnabled = true;
-            this.cbxTheme.Items.AddRange(new object[] {
-            "Animals",
-            "Children",
-            "Classic"});
             this.cbxTheme.Location = new System.Drawing.Point(78, 12);
             this.cbxTheme.MaxDropDownItems = 2;
             this.cbxTheme.Name = "cbxTheme";
             this.cbxTheme.Size = new System.Drawing.Size(121, 21);
             this.cbxTheme.Sorted = true;
             this.cbxTheme.TabIndex = 2;
-            this.cbxTheme.Text = "Classic";
+            this.cbxTheme.SelectedValueChanged += new System.EventHandler(this.cbxTheme_SelectedValueChanged);
             // 
             // lblTheme
             // 
@@ -107,6 +107,7 @@
             0,
             0,
             0});
+            this.numSizeX.ValueChanged += new System.EventHandler(this.checkBoardSize);
             // 
             // numSizeY
             // 
@@ -129,6 +130,7 @@
             0,
             0,
             0});
+            this.numSizeY.ValueChanged += new System.EventHandler(this.checkBoardSize);
             // 
             // lblAfmetingen
             // 
@@ -148,13 +150,53 @@
             this.label1.TabIndex = 7;
             this.label1.Text = "X";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(205, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(13, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "=";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(267, 41);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 9;
+            this.label3.Text = "Kaartjes";
+            // 
+            // txtNrOfTiles
+            // 
+            this.txtNrOfTiles.Enabled = false;
+            this.txtNrOfTiles.Location = new System.Drawing.Point(225, 39);
+            this.txtNrOfTiles.Name = "txtNrOfTiles";
+            this.txtNrOfTiles.ReadOnly = true;
+            this.txtNrOfTiles.Size = new System.Drawing.Size(36, 20);
+            this.txtNrOfTiles.TabIndex = 10;
+            // 
+            // lblError
+            // 
+            this.lblError.ForeColor = System.Drawing.Color.Red;
+            this.lblError.Location = new System.Drawing.Point(15, 69);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(297, 13);
+            this.lblError.TabIndex = 11;
+            this.lblError.Text = "-";
+            // 
             // dlgSettings
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(213, 116);
+            this.ClientSize = new System.Drawing.Size(325, 132);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.txtNrOfTiles);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAfmetingen);
             this.Controls.Add(this.numSizeY);
@@ -164,7 +206,7 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.Name = "dlgSettings";
-            this.Text = "Instellingen";
+            this.Text = "-";
             this.Load += new System.EventHandler(this.dlgSettings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numSizeX)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numSizeY)).EndInit();
@@ -191,5 +233,9 @@
         public System.Windows.Forms.NumericUpDown numSizeX;
         /// <summary></summary>
         public System.Windows.Forms.NumericUpDown numSizeY;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtNrOfTiles;
+        private System.Windows.Forms.Label lblError;
     }
 }

@@ -45,8 +45,10 @@
             this.lblPlayer1Score = new System.Windows.Forms.Label();
             this.lblPlayer2Score = new System.Windows.Forms.Label();
             this.lblPlayer2Name = new System.Windows.Forms.Label();
+            this.imgAvatarCurPlayer = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.tblheader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAvatarCurPlayer)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -56,7 +58,7 @@
             this.scoresToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(867, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -147,21 +149,23 @@
             // 
             // tblheader
             // 
-            this.tblheader.ColumnCount = 4;
-            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80.625F));
-            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 19.375F));
-            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 312F));
-            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 64F));
+            this.tblheader.ColumnCount = 5;
+            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.18919F));
+            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.81081F));
+            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 91F));
+            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 303F));
+            this.tblheader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72F));
+            this.tblheader.Controls.Add(this.lblPlayer2Score, 4, 0);
+            this.tblheader.Controls.Add(this.lblPlayer2Name, 3, 0);
             this.tblheader.Controls.Add(this.lblPlayer1Name, 0, 0);
+            this.tblheader.Controls.Add(this.imgAvatarCurPlayer, 2, 0);
             this.tblheader.Controls.Add(this.lblPlayer1Score, 1, 0);
-            this.tblheader.Controls.Add(this.lblPlayer2Score, 3, 0);
-            this.tblheader.Controls.Add(this.lblPlayer2Name, 2, 0);
             this.tblheader.Location = new System.Drawing.Point(12, 27);
             this.tblheader.Name = "tblheader";
             this.tblheader.RowCount = 1;
             this.tblheader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tblheader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tblheader.Size = new System.Drawing.Size(760, 65);
+            this.tblheader.Size = new System.Drawing.Size(842, 65);
             this.tblheader.TabIndex = 2;
             // 
             // lblPlayer1Name
@@ -178,7 +182,7 @@
             // 
             this.lblPlayer1Score.AutoSize = true;
             this.lblPlayer1Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayer1Score.Location = new System.Drawing.Point(312, 0);
+            this.lblPlayer1Score.Location = new System.Drawing.Point(244, 0);
             this.lblPlayer1Score.Name = "lblPlayer1Score";
             this.lblPlayer1Score.Size = new System.Drawing.Size(36, 37);
             this.lblPlayer1Score.TabIndex = 3;
@@ -188,7 +192,7 @@
             // 
             this.lblPlayer2Score.AutoSize = true;
             this.lblPlayer2Score.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayer2Score.Location = new System.Drawing.Point(698, 0);
+            this.lblPlayer2Score.Location = new System.Drawing.Point(772, 0);
             this.lblPlayer2Score.Name = "lblPlayer2Score";
             this.lblPlayer2Score.Size = new System.Drawing.Size(36, 37);
             this.lblPlayer2Score.TabIndex = 1;
@@ -199,17 +203,27 @@
             this.lblPlayer2Name.AutoSize = true;
             this.lblPlayer2Name.BackColor = System.Drawing.SystemColors.Control;
             this.lblPlayer2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPlayer2Name.Location = new System.Drawing.Point(386, 0);
+            this.lblPlayer2Name.Location = new System.Drawing.Point(469, 0);
             this.lblPlayer2Name.Name = "lblPlayer2Name";
             this.lblPlayer2Name.Size = new System.Drawing.Size(28, 37);
             this.lblPlayer2Name.TabIndex = 2;
             this.lblPlayer2Name.Text = "-";
             // 
+            // imgAvatarCurPlayer
+            // 
+            this.imgAvatarCurPlayer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.imgAvatarCurPlayer.Location = new System.Drawing.Point(378, 3);
+            this.imgAvatarCurPlayer.Name = "imgAvatarCurPlayer";
+            this.imgAvatarCurPlayer.Size = new System.Drawing.Size(85, 59);
+            this.imgAvatarCurPlayer.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgAvatarCurPlayer.TabIndex = 8;
+            this.imgAvatarCurPlayer.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 434);
+            this.ClientSize = new System.Drawing.Size(867, 434);
             this.Controls.Add(this.tblheader);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -217,11 +231,13 @@
             this.MinimumSize = new System.Drawing.Size(800, 400);
             this.Name = "MainForm";
             this.Text = "Memory!";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             this.Resize += new System.EventHandler(this.MainForm_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.tblheader.ResumeLayout(false);
             this.tblheader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAvatarCurPlayer)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,6 +262,7 @@
         private System.Windows.Forms.Label lblPlayer1Score;
         private System.Windows.Forms.Label lblPlayer1Name;
         private System.Windows.Forms.Label lblPlayer2Score;
+        private System.Windows.Forms.PictureBox imgAvatarCurPlayer;
     }
 }
 

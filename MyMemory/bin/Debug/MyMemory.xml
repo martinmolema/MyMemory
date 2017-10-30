@@ -25,6 +25,11 @@
         <member name="M:MyMemory.dlgPlayerNameEntry.btnOK_Click(System.Object,System.EventArgs)">
             <summary></summary>
         </member>
+        <member name="M:MyMemory.dlgPlayerNameEntry.showAvatars">
+            <summary>
+            Shows the avatars if applicable
+            </summary>
+        </member>
         <member name="F:MyMemory.dlgPlayerNameEntry.components">
             <summary>
             Required designer variable.
@@ -77,6 +82,19 @@
         </member>
         <member name="M:MyMemory.dlgSettings.dlgSettings_Load(System.Object,System.EventArgs)">
             <summary></summary>
+        </member>
+        <member name="M:MyMemory.dlgSettings.checkBoardSize(System.Object,System.EventArgs)">
+            <summary>
+            event to capture input changes from the board size numscrollers
+            
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:MyMemory.dlgSettings.updateBoardsizeIndicator">
+            <summary>
+            
+            </summary>
         </member>
         <member name="F:MyMemory.dlgSettings.components">
             <summary>
@@ -203,6 +221,9 @@
         <member name="F:MyMemory.playerInfo.score">
             <summary>the score for the player</summary>
         </member>
+        <member name="F:MyMemory.playerInfo.avatarFilename">
+            <summery>avatar filename</summery>
+        </member>
         <member name="T:MyMemory.gameSettings">
             <summary>A global class with only static information serving as the application's administration
             through save and load procedures the state can be saved/retrieved from disk
@@ -262,6 +283,15 @@
         <member name="F:MyMemory.gameSettings._currentPlayerNumber">
             <summary></summary>
         </member>
+        <member name="F:MyMemory.gameSettings.themesFound">
+            <summary>the names of the files found on disk for themes</summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.themeImageFiles">
+            <summary></summary>
+        </member>
+        <member name="F:MyMemory.gameSettings.themeAllowed">
+            <summary></summary>
+        </member>
         <member name="P:MyMemory.gameSettings.openedImageCount">
             <summary>
             the number of temporarily opened images when user is clicking on a closed tile.
@@ -291,7 +321,9 @@
             <value>The integer representation of the number of players</value>
         </member>
         <member name="P:MyMemory.gameSettings.theme">
-            <summary>The theme is a string value representing a certain theme ("iconset")</summary>
+            <summary>The theme is a string value representing a certain theme ("iconset")
+            Also checks if the files on disk are sufficient to use this theme. The variable themeAllowed is set to true or false
+            </summary>
             <value>The theme is a string value representing a certain theme ("iconset")</value>
         </member>
         <member name="M:MyMemory.gameSettings.#cctor">
@@ -309,14 +341,21 @@
               Set player name for a certain playernumber; leave score alone 
             </summary>
             <param name="playerName">the name of the player</param>
-            <param name="playerNr">the playernumber</param>
+            <param name="playerNr">the playernumber; values 1 or 2</param>
+        </member>
+        <member name="M:MyMemory.gameSettings.assignPlayerAvatar(System.String,System.Int32)">
+            <summary>
+            Assign an avatar to a player
+            </summary>
+            <param name="filename"></param>
+            <param name="playerNr">values 1 or 2 are allowed</param>
         </member>
         <member name="M:MyMemory.gameSettings.setScorePlayer(System.Int32,System.Int32)">
             <summary>
               Set the absolute score for a certain player
             </summary>
             <param name="score">score (integer)</param>
-            <param name="playerNr">playernumber requested</param>
+            <param name="playerNr">playernumber requested; values 1 or 2</param>
         </member>
         <member name="M:MyMemory.gameSettings.resetSinglePlayerTimer">
             <summary>
@@ -328,7 +367,7 @@
             add a new player with a certain name and absolute score of zero
             </summary>
             <param name="playername">The new player's name</param>
-            <param name="playerNr">the new playernumber</param>
+            <param name="playerNr">the new playernumber; values 1 or 2</param>
         </member>
         <member name="M:MyMemory.gameSettings.setupNewGame">
             <summary>
@@ -420,6 +459,17 @@
         </member>
         <member name="M:MyMemory.gameSettings.checkGameOver">
             <summary>Checks if the game is over and changes the gameStatus and tilestatus accordingly</summary>
+        </member>
+        <member name="M:MyMemory.gameSettings.determineThemeFilesOnDisk">
+            <summary>
+              Searches all theme files on disk.
+            </summary>
+        </member>
+        <member name="M:MyMemory.gameSettings.enoughImageFilesForTheme">
+            <summary>
+              check if there are enough files found for the selected theme.
+            </summary>
+            <returns></returns>
         </member>
         <member name="T:MyMemory.MainForm">
             <summary>

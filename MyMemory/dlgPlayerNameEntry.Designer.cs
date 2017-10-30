@@ -40,19 +40,30 @@
             this.rdoSinglePlayerFlash = new System.Windows.Forms.RadioButton();
             this.rdoSinglePlayer = new System.Windows.Forms.RadioButton();
             this.rdoNormalGameMode = new System.Windows.Forms.RadioButton();
+            this.btnAvatar1 = new System.Windows.Forms.Button();
+            this.btnAvatar2 = new System.Windows.Forms.Button();
+            this.dlgFileOpen = new System.Windows.Forms.OpenFileDialog();
+            this.imgAvatar1 = new System.Windows.Forms.PictureBox();
+            this.imgAvatar2 = new System.Windows.Forms.PictureBox();
             this.grpNames.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAvatar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAvatar2)).BeginInit();
             this.SuspendLayout();
             // 
             // grpNames
             // 
+            this.grpNames.Controls.Add(this.imgAvatar2);
+            this.grpNames.Controls.Add(this.imgAvatar1);
+            this.grpNames.Controls.Add(this.btnAvatar2);
+            this.grpNames.Controls.Add(this.btnAvatar1);
             this.grpNames.Controls.Add(this.lblPlayername2);
             this.grpNames.Controls.Add(this.lblPlayername1);
             this.grpNames.Controls.Add(this.txtSpeler2);
             this.grpNames.Controls.Add(this.txtSpeler1);
             this.grpNames.Location = new System.Drawing.Point(12, 79);
             this.grpNames.Name = "grpNames";
-            this.grpNames.Size = new System.Drawing.Size(463, 80);
+            this.grpNames.Size = new System.Drawing.Size(613, 199);
             this.grpNames.TabIndex = 0;
             this.grpNames.TabStop = false;
             this.grpNames.Text = "Namen van de spelers";
@@ -60,7 +71,7 @@
             // lblPlayername2
             // 
             this.lblPlayername2.AutoSize = true;
-            this.lblPlayername2.Location = new System.Drawing.Point(7, 50);
+            this.lblPlayername2.Location = new System.Drawing.Point(7, 111);
             this.lblPlayername2.Name = "lblPlayername2";
             this.lblPlayername2.Size = new System.Drawing.Size(46, 13);
             this.lblPlayername2.TabIndex = 3;
@@ -77,7 +88,7 @@
             // 
             // txtSpeler2
             // 
-            this.txtSpeler2.Location = new System.Drawing.Point(111, 47);
+            this.txtSpeler2.Location = new System.Drawing.Point(111, 108);
             this.txtSpeler2.Name = "txtSpeler2";
             this.txtSpeler2.Size = new System.Drawing.Size(187, 20);
             this.txtSpeler2.TabIndex = 1;
@@ -95,7 +106,7 @@
             // 
             this.btnOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnOK.Enabled = false;
-            this.btnOK.Location = new System.Drawing.Point(22, 165);
+            this.btnOK.Location = new System.Drawing.Point(22, 284);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 1;
@@ -107,7 +118,7 @@
             // 
             this.btnCancel.CausesValidation = false;
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(400, 165);
+            this.btnCancel.Location = new System.Drawing.Point(550, 283);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 2;
@@ -122,7 +133,7 @@
             this.groupBox1.Controls.Add(this.rdoNormalGameMode);
             this.groupBox1.Location = new System.Drawing.Point(12, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(463, 49);
+            this.groupBox1.Size = new System.Drawing.Size(613, 49);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Game mode";
@@ -173,13 +184,57 @@
             this.rdoNormalGameMode.UseVisualStyleBackColor = true;
             this.rdoNormalGameMode.CheckedChanged += new System.EventHandler(this.rdoNormalGameMode_CheckedChanged);
             // 
+            // btnAvatar1
+            // 
+            this.btnAvatar1.Location = new System.Drawing.Point(305, 20);
+            this.btnAvatar1.Name = "btnAvatar1";
+            this.btnAvatar1.Size = new System.Drawing.Size(75, 23);
+            this.btnAvatar1.TabIndex = 4;
+            this.btnAvatar1.Text = "Avatar";
+            this.btnAvatar1.UseVisualStyleBackColor = true;
+            this.btnAvatar1.Click += new System.EventHandler(this.btnAvatar1_Click);
+            // 
+            // btnAvatar2
+            // 
+            this.btnAvatar2.Location = new System.Drawing.Point(304, 108);
+            this.btnAvatar2.Name = "btnAvatar2";
+            this.btnAvatar2.Size = new System.Drawing.Size(75, 23);
+            this.btnAvatar2.TabIndex = 5;
+            this.btnAvatar2.Text = "Avatar";
+            this.btnAvatar2.UseVisualStyleBackColor = true;
+            this.btnAvatar2.Click += new System.EventHandler(this.btnAvatar2_Click);
+            // 
+            // dlgFileOpen
+            // 
+            this.dlgFileOpen.AddExtension = false;
+            this.dlgFileOpen.Filter = "PNG Files (*.png)|*.png|JPEG (*.jpg;*.jpeg)|(*.jpg;*.jpeg)";
+            this.dlgFileOpen.FileOk += new System.ComponentModel.CancelEventHandler(this.dlgFileOpen_FileOk);
+            // 
+            // imgAvatar1
+            // 
+            this.imgAvatar1.Location = new System.Drawing.Point(435, 20);
+            this.imgAvatar1.Name = "imgAvatar1";
+            this.imgAvatar1.Size = new System.Drawing.Size(93, 74);
+            this.imgAvatar1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgAvatar1.TabIndex = 6;
+            this.imgAvatar1.TabStop = false;
+            // 
+            // imgAvatar2
+            // 
+            this.imgAvatar2.Location = new System.Drawing.Point(435, 100);
+            this.imgAvatar2.Name = "imgAvatar2";
+            this.imgAvatar2.Size = new System.Drawing.Size(93, 74);
+            this.imgAvatar2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgAvatar2.TabIndex = 7;
+            this.imgAvatar2.TabStop = false;
+            // 
             // dlgPlayerNameEntry
             // 
             this.AcceptButton = this.btnOK;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnCancel;
-            this.ClientSize = new System.Drawing.Size(487, 200);
+            this.ClientSize = new System.Drawing.Size(637, 318);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
@@ -191,6 +246,8 @@
             this.grpNames.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAvatar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgAvatar2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -209,5 +266,10 @@
         private System.Windows.Forms.RadioButton rdoSinglePlayerFlash;
         private System.Windows.Forms.RadioButton rdoSinglePlayer;
         private System.Windows.Forms.RadioButton rdoNormalGameMode;
+        private System.Windows.Forms.Button btnAvatar1;
+        private System.Windows.Forms.Button btnAvatar2;
+        private System.Windows.Forms.OpenFileDialog dlgFileOpen;
+        private System.Windows.Forms.PictureBox imgAvatar2;
+        private System.Windows.Forms.PictureBox imgAvatar1;
     }
 }

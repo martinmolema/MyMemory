@@ -41,6 +41,8 @@ namespace MyMemory
 
             this.txtSpeler2.Visible = (gameSettings.numberOfPlayers == 2);
             this.lblPlayername2.Visible = (gameSettings.numberOfPlayers == 2);
+            this.imgAvatar2.Visible = (gameSettings.numberOfPlayers == 2);
+            this.btnAvatar2.Visible = (gameSettings.numberOfPlayers == 2);
 
         }//enableButtons()
 
@@ -49,6 +51,27 @@ namespace MyMemory
         {
             this.txtSpeler1.Text = gameSettings.players[0].name;
             this.txtSpeler2.Text = gameSettings.players[1].name;
+            this.rdoNormalFlash.Checked = false;
+            this.rdoNormalGameMode.Checked = false;
+            this.rdoSinglePlayer.Checked = false;
+            this.rdoSinglePlayerFlash.Checked = false;
+            switch (gameSettings.gameMode)
+            {
+                case gameModeType.Normal:
+                    this.rdoNormalGameMode.Checked = true;
+                    break;
+                case gameModeType.NormalFlash:
+                    this.rdoNormalFlash.Checked = true;
+                    break;
+                case gameModeType.SinglePlayer:
+                    this.rdoSinglePlayer.Checked = true;
+                    break;
+                case gameModeType.SinglePlayerFlash:
+                    this.rdoSinglePlayerFlash.Checked = true;
+                    break;
+
+            }
+            showAvatars();
         }//dlgPlayerNameEntry_Load()
         /// <summary></summary>
 
@@ -58,12 +81,12 @@ namespace MyMemory
             {
                 case gameModeType.Normal:
                 case gameModeType.NormalFlash:
-                    gameSettings.newPlayer(this.txtSpeler1.Text ,0);
-                    gameSettings.newPlayer(this.txtSpeler2.Text, 1);
+                    gameSettings.newPlayer(this.txtSpeler1.Text ,1);
+                    gameSettings.newPlayer(this.txtSpeler2.Text, 2);
                     break;
                 case gameModeType.SinglePlayer:
                 case gameModeType.SinglePlayerFlash:
-                    gameSettings.newPlayer(this.txtSpeler1.Text, 0);
+                    gameSettings.newPlayer(this.txtSpeler1.Text, 1);
                     break;
             }
         }//btnOK_Click
@@ -90,6 +113,48 @@ namespace MyMemory
         {
             if (rdoSinglePlayerFlash.Checked) gameSettings.gameMode = gameModeType.SinglePlayerFlash;
             enableButtons();
+        }
+
+        private void btnAvatar1_Click(object sender, EventArgs e)
+        {
+            if ( dlgFileOpen.ShowDialog() == DialogResult.OK)
+            {
+                gameSettings.assignPlayerAvatar(dlgFileOpen.FileName,1);
+                showAvatars();
+            }
+            
+        }
+
+        private void btnAvatar2_Click(object sender, EventArgs e)
+        {
+            if (dlgFileOpen.ShowDialog() == DialogResult.OK)
+            {
+                gameSettings.assignPlayerAvatar(dlgFileOpen.FileName, 2);
+                showAvatars();
+            }
+
+        }
+        /// <summary>
+        /// Shows the avatars if applicable
+        /// </summary>
+        private void showAvatars()
+        {
+            try
+            {
+                imgAvatar1.Image = Image.FromFile(gameSettings.players[0].avatarFilename);
+                imgAvatar2.Image = Image.FromFile(gameSettings.players[1].avatarFilename);
+            }
+            catch(Exception e)
+            {
+                // do nothing
+                Console.Write(e.Message);
+            }
+
+        }//showAvatars()
+
+        private void dlgFileOpen_FileOk(object sender, CancelEventArgs e)
+        {
+
         }
 
         private void txt_TextChanged(object sender, EventArgs e)

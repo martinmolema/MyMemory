@@ -76,6 +76,8 @@ namespace MyMemory
         public String name;
         /// <summary>the score for the player</summary>
         public int score;
+        /// <summery>avatar filename</summery>
+        public String avatarFilename;
     }
 
 
@@ -118,6 +120,13 @@ namespace MyMemory
         private static int _openedImageCount;
         /// <summary></summary>
         private static int _currentPlayerNumber;
+        /// <summary>the names of the files found on disk for themes</summary>
+        public static List<String> themesFound;
+        /// <summary></summary>
+        public static List<KeyValuePair<String, String>> themeImageFiles;
+
+        /// <summary></summary>
+        public static bool themeAllowed;
 
         /// <summary>
         /// the number of temporarily opened images when user is clicking on a closed tile.
@@ -177,7 +186,9 @@ namespace MyMemory
             get { return _numberOfPlayers; }
         }//property numberOfPlayers
 
-        /// <summary>The theme is a string value representing a certain theme ("iconset")</summary>
+        /// <summary>The theme is a string value representing a certain theme ("iconset")
+        /// Also checks if the files on disk are sufficient to use this theme. The variable themeAllowed is set to true or false
+        /// </summary>
         /// <value>The theme is a string value representing a certain theme ("iconset")</value>
         public static String theme
         {
@@ -186,6 +197,7 @@ namespace MyMemory
             {
                 _theme = value;
                 imageBackTile = "themes\\theme" + theme + "_back.png";
+                enoughImageFilesForTheme();
             }
         }
 
@@ -193,14 +205,21 @@ namespace MyMemory
         static gameSettings()
         {
             highscoreNames = new List<KeyValuePair<string, int>>();
-            theme = "Classic";
+            themesFound = new List<String>();
+            themeImageFiles = new List<KeyValuePair<string, string>>();
+
             gameStatus = gameStatusType.Initial;
 
             gameMode = gameModeType.Normal;
-            setSize(4, 4);
 
             openedImages = new int[2];
             cleanupOpenedImages();
+
+            determineThemeFilesOnDisk();
+            theme = themesFound.First();
+            setSize(4, 4);
+
+            enoughImageFilesForTheme();
 
             _currentPlayerNumber = 1;
         }// constructor gameSettings
@@ -229,21 +248,34 @@ namespace MyMemory
         ///   Set player name for a certain playernumber; leave score alone 
         /// </summary>
         /// <param name="playerName">the name of the player</param>
-        /// <param name="playerNr">the playernumber</param>
+        /// <param name="playerNr">the playernumber; values 1 or 2</param>
         public static void setPlayername(String playerName, int playerNr)
         {
             if (playerNr > numberOfPlayers)
             {
                 throw new Exception("playernr" + playerNr + " does not exist");
             }
-            else { players[playerNr].name = playerName; }
+            else { players[playerNr-1].name = playerName; }
         }//setPlayername
+
+        /// <summary>
+        /// Assign an avatar to a player
+        /// </summary>
+        /// <param name="filename"></param>
+        /// <param name="playerNr">values 1 or 2 are allowed</param>
+        public static void assignPlayerAvatar(string filename, int playerNr) {
+            if (playerNr > numberOfPlayers)
+            {
+                throw new Exception("playernr" + playerNr + " does not exist");
+            }
+            else { players[playerNr-1].avatarFilename= filename; }
+        }//assignPlayerAvatar()
 
         /// <summary>
         ///   Set the absolute score for a certain player
         /// </summary>
         /// <param name="score">score (integer)</param>
-        /// <param name="playerNr">playernumber requested</param>
+        /// <param name="playerNr">playernumber requested; values 1 or 2</param>
         public static void setScorePlayer(int score, int playerNr)
         {
             if (playerNr > numberOfPlayers)
@@ -252,7 +284,7 @@ namespace MyMemory
             }
             else
             {
-                players[playerNr].score = score;
+                players[playerNr-1].score = score;
             }
         }//setScorePlayer
 
@@ -268,11 +300,11 @@ namespace MyMemory
         /// add a new player with a certain name and absolute score of zero
         /// </summary>
         /// <param name="playername">The new player's name</param>
-        /// <param name="playerNr">the new playernumber</param>
+        /// <param name="playerNr">the new playernumber; values 1 or 2</param>
         public static void newPlayer(String playername, int playerNr)
         {
-            players[playerNr].name = playername;
-            players[playerNr].score = 0;
+            players[playerNr-1].name = playername;
+            players[playerNr-1].score = 0;
         }
 
         /// <summary>
@@ -308,20 +340,7 @@ namespace MyMemory
 
             bulkChangeTileStatus(tileStartStatus);
 
-            switch (gameSettings.theme)
-            {
-                case "Classic":
-                    imagePrefix = "themes\\themeClassic";
-                    break;
-                case "Children":
-                    imagePrefix = "themes\\themeAnimals";
-                    break;
-                case "Animals":
-                    imagePrefix = "themes\\themeAnimals";
-                    break;
-                default:
-                    throw (new Exception("Onjuiste thema selectie!"));
-            }
+            imagePrefix = "themes\\theme-" +theme + "-";
 
             // setup one list of images for the number of tiles.
             List<String> tempTiles = new List<String>();
@@ -459,8 +478,12 @@ namespace MyMemory
             int j = 0;
             foreach (XmlNode xn in playerNodes)
             {
+                XmlNode pAvatar;
                 players[j].name = xn.SelectSingleNode("./name/text()").Value;
                 players[j].score = Convert.ToInt16(xn.SelectSingleNode("./score/text()").Value);
+
+                pAvatar = xn.SelectSingleNode("./avatar/");
+                if (pAvatar != null)  players[j].avatarFilename = xn.SelectSingleNode("./avatar/text()").Value;
                 j++;
             }
             highscoreNames.OrderByDescending(xscore => xscore.Value);
@@ -490,7 +513,7 @@ namespace MyMemory
             ntheme.InnerText = theme;
             game.AppendChild(ntheme);
 
-            XmlElement player, playersNode, pName, pScore;
+            XmlElement player, playersNode, pName, pScore, pAvatar;
 
             // player container
             playersNode = xml.CreateElement("players");
@@ -501,11 +524,15 @@ namespace MyMemory
                 player = xml.CreateElement("player");
                 pName = xml.CreateElement("name");
                 pScore = xml.CreateElement("score");
+                pAvatar = xml.CreateElement("avatar");
+
                 pName.InnerText = p.name;
                 pScore.InnerText = p.score.ToString();
+                pAvatar.InnerText = p.avatarFilename;
 
                 player.AppendChild(pName);
                 player.AppendChild(pScore);
+                player.AppendChild(pAvatar);
                 playersNode.AppendChild(player);
             }
             game.AppendChild(playersNode);
@@ -690,5 +717,56 @@ namespace MyMemory
                 bulkChangeTileStatus(tileStatusType.Found);
             }// if one pair is remaining
         }//checkGameOver()
+
+        /// <summary>
+        ///   Searches all theme files on disk.
+        /// </summary>
+        public static void determineThemeFilesOnDisk()
+        {
+            String[] files;
+            files = Directory.GetFiles("themes", "theme*.png");
+
+            themesFound.Clear();
+
+            foreach (String f in files)
+            {
+
+                ///TODO: extract theme names from filenames
+                if (System.Text.RegularExpressions.Regex.IsMatch(f, "theme-([A-Za-z]*?)-([0-9]{2}).png"))
+                {
+                    String themeName;
+                    KeyValuePair<string, string> combi;
+
+                    System.Text.RegularExpressions.MatchCollection matches;
+                    matches = System.Text.RegularExpressions.Regex.Matches(f, "theme-([A-Za-z]*?)-([0-9]{2}).png");
+
+                    themeName = matches[0].Groups[1].Value;
+
+                    if (!themesFound.Contains(themeName)) themesFound.Add(themeName);
+
+                    combi = new KeyValuePair<string, String>(themeName, f);
+                    themeImageFiles.Add(combi);
+                    Console.WriteLine(themeName, combi.ToString());
+                }
+            }//for each file
+
+        }//determineThemeFilesOnDisk()
+
+        /// <summary>
+        ///   check if there are enough files found for the selected theme.
+        /// </summary>
+        /// <returns></returns>
+        public static bool enoughImageFilesForTheme()
+        {
+            bool res;
+
+            res = (themeImageFiles.FindAll(t => t.Key == theme).Count >= numberOfTiles/2);
+            themeAllowed = res;
+
+            return res;
+        }
+
+
+
     }//class
 }//namespace
