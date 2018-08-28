@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.Generic;
 
 namespace MyMemory
 {
@@ -11,6 +12,7 @@ namespace MyMemory
     public partial class MainForm : Form
     {
         TableLayoutPanel tblTiles;
+        System.Windows.Forms.Timer scoreTimer;
 
         /// <summary>Initialises the mainform</summary>
         public MainForm()
@@ -87,7 +89,7 @@ namespace MyMemory
 
                 if (gameSettings.numberOfPlayers == 1)
                 {
-                    System.Windows.Forms.Timer scoreTimer = new System.Windows.Forms.Timer();
+                    scoreTimer = new System.Windows.Forms.Timer();
                     scoreTimer.Interval = 1000;
                     scoreTimer.Tick += HandleScoreTimer;
                     scoreTimer.Enabled = true;
@@ -97,10 +99,10 @@ namespace MyMemory
 
                 if (gameSettings.gameStatus == gameStatusType.Flashing)
                 {
-                    System.Windows.Forms.Timer scoreTimer = new System.Windows.Forms.Timer();
-                    scoreTimer.Interval = 8000;
-                    scoreTimer.Tick += HandleFlashingTimer;
-                    scoreTimer.Enabled = true;
+                    System.Windows.Forms.Timer flashTimer = new System.Windows.Forms.Timer();
+                    flashTimer.Interval = 8000;
+                    flashTimer.Tick += HandleFlashingTimer;
+                    flashTimer.Enabled = true;
                 }
                 else
                 {
@@ -265,6 +267,8 @@ namespace MyMemory
                         {
                             OpenAllTiles();
 
+                            FinishGame();
+
                             MessageBox.Show("Game Over");
                         }
                     }
@@ -284,6 +288,15 @@ namespace MyMemory
 
         }//Tile_clicked()
 
+        private void FinishGame()
+        {
+            KeyValuePair<string,int> score = new KeyValuePair<string, int>(
+                gameSettings.players[gameSettings.currentPlayerNumber-1].name, 
+                gameSettings.players[gameSettings.currentPlayerNumber-1].score);
+            gameSettings.highscoreNames.Add(score);
+            scoreTimer.Enabled = false;
+        }//FinishGame
+
         /// <summary>switch to another player</summary>
         private void switchPlayer()
         {
@@ -302,8 +315,6 @@ namespace MyMemory
                     this.lblPlayer2Name.ForeColor = Color.Red;
                     break;
             }
-
-            
         }//switchPlayer()
 
         /// <summary>
@@ -446,13 +457,13 @@ namespace MyMemory
             {
                 case 1:
                     this.lblPlayer1Score.Text = newscore.ToString();
+                    this.lblPlayer1Score.Invalidate();
                     break;
                 case 2:
                     this.lblPlayer2Score.Text = newscore.ToString();
+                    this.lblPlayer2Score.Invalidate();
                     break;
             }
-
-
         }//changePlayerScore()
 
         /// <summary>Shows all images</summary>

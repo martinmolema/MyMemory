@@ -51,8 +51,10 @@ namespace MyMemory
 
             this.txtNrOfTiles.Text = (x * y).ToString();
 
-            btnOK.Enabled = ((x * y) % 2 == 0);
-            if (!btnOK.Enabled) this.lblError.Text = "Dit geeft een oneven aantal afbeeldingen";
+            bool tilesOk = ((x * y) % 2 == 0);
+
+            btnOK.Enabled = tilesOk && (this.cbxTheme.Text!="");
+            if (! tilesOk) this.lblError.Text = "Dit geeft een oneven aantal afbeeldingen";
             else this.lblError.Text = "";
         }//updateBoardsizeIndicator()
 

@@ -25,7 +25,6 @@ C:\Home\Martin\Sources\MyMemory\MyMemory\obj\Debug\MyMemory.dlgSettings.resource
 C:\Home\Martin\Sources\MyMemory.git\MyMemory\bin\Debug\MyMemory.exe.config
 C:\Home\Martin\Sources\MyMemory.git\MyMemory\bin\Debug\MyMemory.exe
 C:\Home\Martin\Sources\MyMemory.git\MyMemory\bin\Debug\MyMemory.pdb
-C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.csprojResolveAssemblyReference.cache
 C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.dlgPlayerNameEntry.resources
 C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.dlgHighscores.resources
 C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.dlgSettings.resources
@@ -36,3 +35,4 @@ C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.csproj.CoreCompi
 C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.exe
 C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.pdb
 C:\Home\Martin\Sources\MyMemory.git\MyMemory\bin\Debug\MyMemory.xml
+C:\Home\Martin\Sources\MyMemory.git\MyMemory\obj\Debug\MyMemory.csprojAssemblyReference.cache
